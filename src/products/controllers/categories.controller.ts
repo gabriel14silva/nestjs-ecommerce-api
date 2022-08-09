@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 
 import { CategoriesService } from '../services/categories.service';
+
 import { CreateCategoryDto, UpdateCategoryDto } from './../dtos/category.dtos';
 
 @Controller('categories')
@@ -39,8 +40,8 @@ export class CategoriesController {
     return this.categoriesService.update(id, payload);
   }
 
-  @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.categoriesService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id', ParseIntPipe) id: number) {
+  //   return this.categoriesService.remove(+id);
+  // }
 }
