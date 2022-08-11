@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column, Entity } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, Entity, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
 export class Customer {
@@ -13,4 +13,10 @@ export class Customer {
 
   @Column({ type: 'int' })
   phone: number;
+
+  @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP', })
+  createAt: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP', })
+  updateAt: Date;
 }

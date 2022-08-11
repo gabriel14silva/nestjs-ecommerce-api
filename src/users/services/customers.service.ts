@@ -14,7 +14,7 @@ export class CustomersService {
   }
 
   async findOne(id: number) {
-    const customer = await this.customerRepo.findOneBy({id:id});
+    const customer = await this.customerRepo.findOne(id);
     if (!customer) {
       throw new NotFoundException(`customer #${id} not found`);
     }
@@ -27,7 +27,7 @@ export class CustomersService {
   }
 
   async update(id: number, changes: UpdateCustomerDto) {
-    const customer = await this.customerRepo.findOneBy({id:id});
+    const customer = await this.customerRepo.findOne(id);
     this.customerRepo.merge(customer, changes);
     return this.customerRepo.save(customer);
   }

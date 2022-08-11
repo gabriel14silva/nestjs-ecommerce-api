@@ -14,7 +14,7 @@ export class BrandsService {
   }
 
   async findOne(id: number) {
-    const brand = await this.brandRepo.findOneBy({id:id});
+    const brand = await this.brandRepo.findOne(id);
     if (!brand) {
       throw new NotFoundException(`Brand #${id} not found`);
     }
@@ -27,7 +27,7 @@ export class BrandsService {
   }
 
   async update(id: number, changes: UpdateBrandDto) {
-    const brand = await this.brandRepo.findOneBy({id:id});
+    const brand = await this.brandRepo.findOne(id);
     this.brandRepo.merge(brand, changes);
     return this.brandRepo.save(brand);
   }

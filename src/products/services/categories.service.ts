@@ -14,7 +14,7 @@ export class CategoriesService {
   }
 
   async findOne(id: number) {
-    const category = await this.categoryRepo.findOneBy({id:id});
+    const category = await this.categoryRepo.findOne(id);
     if (!category) {
       throw new NotFoundException(`Category #${id} not found`);
     }
@@ -27,7 +27,7 @@ export class CategoriesService {
   }
 
   async update(id: number, changes: UpdateCategoryDto) {
-    const category = await this.categoryRepo.findOneBy({ id:id });
+    const category = await this.categoryRepo.findOne(id);
     this.categoryRepo.merge(category, changes);
     return this.categoryRepo.save(category);
   }
