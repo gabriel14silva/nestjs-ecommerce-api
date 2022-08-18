@@ -32,6 +32,17 @@
 $ npm install
 ```
 
+## Iniciar servicios de Docker
+$ systemctl start docker
+
+## Creamos un servicio llamado postgres
+sudo docker-compose up -d postgres
+
+## Lanzar el servicio de interfaz de pgadmin
+$ sudo docker-compose up -d pgadmin
+
+Acceder http://localhost:5050/browser/
+
 ## Running the app
 
 ```bash
