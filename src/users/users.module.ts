@@ -6,12 +6,13 @@ import { CustomersService } from './services/customers.service';
 import { Customer } from './entities/customer.entity';
 import { UsersController } from './controllers/users.controller';
 import { UsersService } from './services/users.service';
+import { User } from './entities/user.entity';
 
 import { ProductsModule } from '../products/products.module';
-// import { Order } from './entities/order.entity';
+import { Order } from './entities/order.entity';
 
 @Module({
-  imports: [ProductsModule, TypeOrmModule.forFeature([Customer])],
+  imports: [ProductsModule, TypeOrmModule.forFeature([User, Customer])],
   controllers: [CustomerController, UsersController],
   providers: [CustomersService, UsersService],
 })
