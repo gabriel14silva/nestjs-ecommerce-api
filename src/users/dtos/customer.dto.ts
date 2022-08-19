@@ -15,7 +15,7 @@ export class CreateCustomerDto {
   // @IsPhoneNumber()
   @IsNotEmpty()
   @ApiProperty()
-  readonly phone: number;
+  readonly phone: string;
 }
 
 export class UpdateCustomerDto extends PartialType(CreateCustomerDto) {}
